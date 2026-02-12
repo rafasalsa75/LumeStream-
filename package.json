@@ -1,13 +1,15 @@
 {
   "name": "lumestream",
   "version": "1.0.0",
-  "description": "Addon de Stremio: Películas y series gratis con guiño a Galicia 🍺",
+  "description": "Addon de Stremio con guiño a Galicia y cerveza",
   "main": "server.js",
   "scripts": {
     "start": "node server.js"
   },
+  "author": "Rafael Salgueiro",
+  "license": "MIT",
   "dependencies": {
-    "stremio-addon-sdk": "^0.5.4",
-    "axios": "^1.6.7"
+    "axios": "^1.6.5",
+    "stremio-addon-sdk": "^0.6.0"
   }
 }
