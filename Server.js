@@ -1,74 +1,61 @@
+// Imports al principio
 const { addonBuilder, serveHTTP } = require("stremio-addon-sdk");
+const axios = require("axios");
 
-// Manifest interno (usado por el servidor)
-const manifest = require("./manifest.json");
-const addon = new addonBuilder(manifest);
+// Manifesto del addon
+const manifest = {
+    id: "lumestream-addon",
+    version: "1.0.0",
+    name: "LumeStream",
+    description: "Catálogo de películas y series con guiño a Galicia y cerveza 🍺",
+    resources: ["catalog", "stream"],
+    types: ["movie", "series"],
+    catalogs: [
+        { type: "movie", id: "lumestream-movies", name: "Películas LumeStream" },
+        { type: "series", id: "lumestream-series", name: "Series LumeStream" }
+    ],
+};
 
-// Catálogo de ejemplo
-addon.defineCatalogHandler(async ({ type, id }) => {
-  if (type === "movie") {
-    return {
-      metas: [
+// Creamos el addon
+const builder = new addonBuilder(manifest);
+
+// Catálogo dinámico (puedes conectar APIs externas o usar otros addons)
+builder.defineCatalogHandler(async ({ type, id }) => {
+    // Ejemplo de catálogo local
+    const metas = [
         {
-          id: "lumestream_movie_1",
-          type: "movie",
-          name: "Orixe do Lume",
-          description: "Película gallega de ejemplo",
-          poster: "https://via.placeholder.com/300x450.png?text=LumeStream"
+            id: "1",
+            type: type,
+            name: "Opción Gallega Ejemplo",
+            poster: "https://via.placeholder.com/300x450",
+            description: "Película ejemplo con guiño a Galicia 🍺",
         },
         {
-          id: "lumestream_movie_2",
-          type: "movie",
-          name: "Lúa Chea",
-          description: "Drama gallego",
-          poster: "https://via.placeholder.com/300x450.png?text=LumeStream+2"
-        }
-      ]
-    };
-  } else if (type === "series") {
-    return {
-      metas: [
+            id: "2",
+            type: type,
+            name: "Segunda Película",
+            poster: "https://via.placeholder.com/300x450",
+            description: "Otra película de prueba",
+        },
+    ];
+
+    return { metas };
+});
+
+// Stream dinámico usando links de otros addons o externos
+builder.defineStreamHandler(async ({ id }) => {
+    const streams = [
         {
-          id: "lumestream_series_1",
-          type: "series",
-          name: "Fogar de Lumes",
-          description: "Serie gallega de ejemplo",
-          poster: "https://via.placeholder.com/300x450.png?text=LumeStream+Serie"
-        }
-      ]
-    };
-  }
-  return { metas: [] };
+            title: "Stream de ejemplo",
+            url: "https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4",
+            behaviorHints: { isFree: true },
+        },
+    ];
+
+    return { streams };
 });
 
-// Streams de ejemplo (YouTube legal, Creative Commons)
-addon.defineMetaHandler(async ({ type, id }) => {
-  const streams = {
-    lumestream_movie_1: [
-      {
-        title: "Orixe do Lume - YouTube Ejemplo",
-        url: "https://www.youtube.com/watch?v=ysz5S6PUM-U", 
-        subtitles: []
-      }
-    ],
-    lumestream_movie_2: [
-      {
-        title: "Lúa Chea - YouTube Ejemplo",
-        url: "https://www.youtube.com/watch?v=jNQXAC9IVRw",
-        subtitles: []
-      }
-    ],
-    lumestream_series_1: [
-      {
-        title: "Fogar de Lumes - YouTube Ejemplo",
-        url: "https://www.youtube.com/watch?v=dQw4w9WgXcQ",
-        subtitles: []
-      }
-    ]
-  };
-  return { streams: streams[id] || [] };
-});
+// Servimos el addon
+serveHTTP(builder);
 
-// Levantar servidor en puerto 7000 (puedes cambiar)
-serveHTTP(addon, { port: 7000 });
-console.log("LumeStream corriendo en http://localhost:7000");
+console.log("✅ LumeStream listo y corriendo!");
