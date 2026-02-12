@@ -1,0 +1,23 @@
+{
+  "id": "org.lumestream",
+  "version": "1.0.0",
+  "name": "LumeStream",
+  "description": "Películas y series gratis con un guiño a Galicia 🍺",
+  "types": ["movie", "series"],
+  "resources": ["catalog", "meta", "stream"],
+  "catalogs": [
+    {
+      "type": "movie",
+      "id": "lumestream_catalog",
+      "name": "LumeStream Catalog"
+    },
+    {
+      "type": "series",
+      "id": "lumestream_series",
+      "name": "LumeStream Series"
+    }
+  ],
+  "behaviorHints": {
+    "configurable": false
+  }
+}
