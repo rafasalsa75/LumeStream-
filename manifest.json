@@ -2,9 +2,10 @@
   "id": "metalang.omega",
   "version": "5.0.0",
   "name": "MetaLang OMEGA Engine",
-  "description": "Addon automático MetaLang con búsqueda inteligente de streams multilenguaje y actualización automática.",
+  "description": "MetaLang OMEGA - Auto streams, actualización automática y soporte multi-idioma",
+  "logo": "https://i.imgur.com/0k8sYQp.png",
   "resources": ["stream"],
   "types": ["movie", "series"],
-  "catalogs": [],
-  "idPrefixes": ["tt"]
+  "idPrefixes": ["tt"],
+  "catalogs": []
 }
