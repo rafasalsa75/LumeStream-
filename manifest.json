@@ -1,23 +1,17 @@
 {
-  "id": "org.lumestream",
+  "id": "org.lumestream.addon",
   "version": "1.0.0",
-  "name": "LumeStream",
-  "description": "Películas y series gratis con un guiño a Galicia 🍺",
-  "types": ["movie", "series"],
-  "resources": ["catalog", "meta", "stream"],
+  "name": "LumeStream Addon",
+  "description": "Addon de streaming en español: películas, series, documentales y más.",
+  "resources": ["catalog", "stream"],
+  "types": ["movie", "series", "series", "documentary"],
   "catalogs": [
-    {
-      "type": "movie",
-      "id": "lumestream_catalog",
-      "name": "LumeStream Catalog"
-    },
-    {
-      "type": "series",
-      "id": "lumestream_series",
-      "name": "LumeStream Series"
-    }
+    { "type": "movie", "id": "movies", "name": "Películas" },
+    { "type": "series", "id": "series", "name": "Series" },
+    { "type": "documentary", "id": "documentaries", "name": "Documentales" }
   ],
-  "behaviorHints": {
-    "configurable": false
-  }
+  "idPrefixes": ["tt"],
+  "logo": "https://tu-servidor.com/logo.png",
+  "background": "https://tu-servidor.com/bg.jpg",
+  "contactEmail": "tu-email@dominio.com"
 }
