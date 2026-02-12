@@ -1,11 +1,17 @@
-{
-  "id": "metalang.omega",
-  "version": "5.0.0",
-  "name": "MetaLang OMEGA Engine",
-  "description": "MetaLang OMEGA - Auto streams, actualización automática y soporte multi-idioma",
-  "logo": "https://i.imgur.com/0k8sYQp.png",
-  "resources": ["stream"],
-  "types": ["movie", "series"],
-  "idPrefixes": ["tt"],
-  "catalogs": []
-}
+const express = require('express');
+const app = express();
+const PORT = process.env.PORT || 10000;
+
+app.get('/manifest.json', (req, res) => {
+    res.setHeader('Content-Type', 'application/json');
+    res.send(JSON.stringify({
+        id: "metalang.omega",
+        version: "5.0.0",
+        name: "MetaLang OMEGA Engine",
+        resources: ["stream"],
+        types: ["movie","series"],
+        catalogs: []
+    }));
+});
+
+app.listen(PORT, () => console.log(`🔥 MetaLang OMEGA running on port ${PORT}`));
