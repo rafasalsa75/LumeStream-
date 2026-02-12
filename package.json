@@ -1,0 +1,13 @@
+{
+  "name": "lumestream",
+  "version": "1.0.0",
+  "description": "Addon de Stremio: Películas y series gratis con guiño a Galicia 🍺",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js"
+  },
+  "dependencies": {
+    "stremio-addon-sdk": "^0.5.4",
+    "axios": "^1.6.7"
+  }
+}
