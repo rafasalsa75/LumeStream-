@@ -1,0 +1,13 @@
+{
+  "name": "lumestream-addon",
+  "version": "1.0.0",
+  "description": "Addon LumeStream mejorado, enlaces y traducción al castellano",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js"
+  },
+  "dependencies": {
+    "stremio-addon-sdk": "^0.5.1",
+    "node-fetch": "^3.3.2"
+  }
+}
