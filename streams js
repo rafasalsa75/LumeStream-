@@ -1,0 +1,19 @@
+export async function getStreams(id) {
+  const streamsDB = {
+    "tt1375666": [
+      { title: "Origen 1080p HLS", url: "https://test-streams.mux.dev/x36xhzz/x36xhzz.m3u8", quality: "1080p" },
+      { title: "Origen Torrentio", url: "torrentio:magnet:?xt=urn:btih:EXAMPLE1", quality: "1080p" },
+      { title: "Origen Peerflix", url: "peerflix:magnet:?xt=urn:btih:EXAMPLE2", quality: "1080p" }
+    ],
+    "ser001": [
+      { title: "Stranger Things S01E01 1080p HLS", url: "https://test-streams.mux.dev/x36xhzz/x36xhzz.m3u8", quality: "1080p" },
+      { title: "Stranger Things Torrentio", url: "torrentio:magnet:?xt=urn:btih:EXAMPLE3", quality: "1080p" }
+    ],
+    "doc001": [
+      { title: "Planeta Tierra II Full HLS", url: "https://test-streams.mux.dev/x36xhzz/x36xhzz.m3u8", quality: "1080p" }
+    ]
+    // ...añadir streams para todos los ítems
+  };
+
+  return streamsDB[id] || [];
+}
