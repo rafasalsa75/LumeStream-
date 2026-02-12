@@ -1,13 +1,12 @@
 {
-  "name": "lumestream",
+  "name": "lumestream-addon",
   "version": "1.0.0",
   "main": "server.js",
+  "dependencies": {
+    "stremio-addon-sdk": "^1.0.2",
+    "node-fetch": "^3.3.2" 
+  },
   "scripts": {
     "start": "node server.js"
-  },
-  "dependencies": {
-    "stremio-addon-sdk": "^0.6.0",
-    "node-fetch": "^3.3.1"
-  },
-  "type": "module"
+  }
 }
