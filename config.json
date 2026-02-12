@@ -1,0 +1,5 @@
+{
+  "language": "es",
+  "sources": ["peerflix", "torrentio"],
+  "categories": ["Películas", "Series", "Documentales", "Animación"]
+}
